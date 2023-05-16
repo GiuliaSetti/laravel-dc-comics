@@ -1,1 +1,266 @@
+
+
+
+//importo i due file scss
+@use '_mixins.scss' as *;
+@use '_variables.scss' as *;
 @import '~bootstrap/scss/bootstrap';
+
+
+
+//generali
+ul{
+    list-style: none;
+}
+
+a{
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body{
+    background-color: $blue;
+}
+
+//top header
+#header_top{
+    background-color: $blue;
+    padding: 5px 0;
+
+    text-align: end;
+    a{
+        color: white;
+
+        padding-left: 50px;
+    }
+}
+
+#header_bottom{
+    background-color: white;
+    
+    #header_bottom_content{
+        @include flex();
+        justify-content: space-between;
+    
+    
+    
+        padding: 10px;
+    
+        #header_left{
+            img{
+                width: 70px;
+                display: block;
+            }
+        }
+        
+        #header_center{
+            ul{
+                @include flex();
+                
+                gap: 35px;
+                li{
+                    
+                    a{
+                        color: $lightGray;
+                        padding-top: 20px;
+                        padding-bottom: 42px;
+                        border-bottom: 3px solid transparent;
+    
+                        &:hover{
+                            border-bottom: 3px solid $blue;
+                            color: $blue;
+                        }
+                    }
+    
+                }
+                
+                
+            }
+    
+        }
+    
+        #header_right{
+            input{
+                text-align: end;
+                border: transparent;
+                border-bottom: 2px solid $blue;
+            }
+        }
+    
+       
+    
+    }
+}
+
+//jumbotron
+
+#jumbotron{
+    height: 400px;
+    background-image: url(../img/jumbotron.jpg);
+    background-size: cover;
+}
+
+
+//main content
+main{
+
+    background-color: $darkerGray;
+    
+    #comics_content{
+    
+        
+    
+        #label{
+        
+            position: relative;
+            padding: 20px 0;
+        
+            h5{
+                color: white;
+                background-color: $blue;
+                text-align: center;
+                width: 180px;
+                padding: 8px;
+        
+                position: absolute;
+                top: -20px;
+        
+            }
+        }
+
+        .comic_title{
+            color: white;
+        }
+    
+        img{
+            aspect-ratio: 1/1;
+            object-fit: cover;
+        }
+    
+        #my_button{
+            display: flex;
+            justify-content: center;
+    
+            button{
+                border: none;
+                background-color: $blue;
+                padding: 8px 50px;
+                color: white;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+        }
+    
+    }
+
+    
+}
+
+//buy container
+#buy_container{
+
+    margin-top: 1rem;
+    background-color: $blue;
+
+    img{
+        width: 90px;
+        height: 90px;
+    }
+
+    a{
+        color: white;
+    }
+}
+//footer
+
+#footer_up{
+    background-image: url(../img/footer-bg.jpg);
+    background-size: cover;
+
+    padding: 50px 0;
+
+    height: 420px;
+
+    overflow-y: hidden;
+
+
+    #footer_content{
+        height: 100%;
+        
+        display: flex;
+        justify-content: space-between;
+
+        position: relative;
+        
+        
+        #footer_links{
+            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            
+            
+            h4{
+                color: white;
+            }
+
+            a{
+                color: $lightGray;
+
+                font-weight: 500;
+            }
+        }
+
+        #footer_logo{
+            position: absolute;
+
+            
+            top: -40%;
+            right: 0;
+        }
+    }
+
+    #copyrights{
+
+        padding: 0 40px;
+        
+
+        color: $lightGray;
+    }
+
+}
+
+// footer down
+
+#footer_down{
+    background-color: $darkGray;
+
+    padding-top: 30px;
+    padding-bottom: 10px;
+    
+    .container{
+        
+
+        button{
+            border: 2px solid $blue;
+            background-color: $darkerGray;
+            color: white;
+            font-weight: bold;
+            padding: 5px 20px;
+
+            letter-spacing: 2px;
+        }
+        
+
+        #icons{
+
+
+            h4{
+                color: $blue;
+            }
+        }
+    }
+
+}
+

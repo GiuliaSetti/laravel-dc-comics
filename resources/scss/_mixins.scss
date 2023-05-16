@@ -1,0 +1,7 @@
+
+//flex general
+@mixin flex() {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
