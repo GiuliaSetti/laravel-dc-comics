@@ -15,6 +15,30 @@ class ComicController extends Controller
     public function index()
     {
         //
+            //links navbar
+            $links = config('links');
+
+            //comics
+            $comics = Comic::all();
+    
+            //link buy
+            $buy = config('buy');
+    
+            //links footer
+            $footerLinks = config('footer');
+    
+            //icone social media
+            $icons = config('icons');
+    
+            $data = [
+                'links' => $links,
+                'comics' => $comics,
+                'buy' => $buy,
+                'footerLinks' => $footerLinks,
+                'icons' => $icons
+            ];
+    
+            return view('comics/index', compact('data'));
     }
 
     /**
@@ -47,6 +71,26 @@ class ComicController extends Controller
     public function show(Comic $comic)
     {
         //
+        //links navbar
+        $links = config('links');
+
+        //link buy
+        $buy = config('buy');
+
+        //icone social media
+        $icons = config('icons');
+
+        //links footer
+        $footerLinks = config('footer');
+
+        $data = [
+            'links' => $links,
+            'buy' => $buy,
+            'icons' => $icons,
+            'footerLinks' => $footerLinks,
+        ];
+
+        return view('comics/show', compact('comic','data'));
     }
 
     /**

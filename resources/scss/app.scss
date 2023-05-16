@@ -145,9 +145,14 @@ main{
                 border: none;
                 background-color: $blue;
                 padding: 8px 50px;
-                color: white;
                 font-weight: bold;
                 letter-spacing: 2px;
+
+                margin-bottom: 1rem;
+
+                a{
+                    color: white;
+                }
             }
         }
     
@@ -263,4 +268,21 @@ main{
     }
 
 }
+
+.single_comic{
+
+    img{
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+
+    .description_container{
+    
+        display: flex;
+        color: white;
+    }
+
+}
+
 

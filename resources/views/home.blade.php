@@ -13,7 +13,21 @@
     <main>
 
         <!-- comics -->
+        
         <div id="comics_content" class="container">
+            <div id="label" class="text-uppercase">
+                <h5>Current Series</h5>
+            </div>
+            <div id="my_button">
+                <button id="button" class="btn btn-primary rounded-0">
+                    <a href="{{route('comics.index')}}">LOAD COMICS</a>
+                </button>
+            </div>
+        </div>
+  
+
+ 
+        <!-- <div id="comics_content" class="container">
             <div id="label" class="text-uppercase">
                 <h5>current series</h5>
             </div>
@@ -37,7 +51,7 @@
                 <button>LOAD MORE</button>
             </div>
 
-        </div>
+        </div> -->
         <!-- /comics -->
 
         
