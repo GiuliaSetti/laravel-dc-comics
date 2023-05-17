@@ -30,15 +30,8 @@ class ComicController extends Controller
             //icone social media
             $icons = config('icons');
     
-            $data = [
-                'links' => $links,
-                'comics' => $comics,
-                'buy' => $buy,
-                'footerLinks' => $footerLinks,
-                'icons' => $icons
-            ];
     
-            return view('comics/index', compact('data'));
+            return view('comics.index', compact('links', 'comics', 'buy', 'footerLinks', 'icons'));
     }
 
     /**
@@ -46,9 +39,29 @@ class ComicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        // 
+
+         //links navbar
+         $links = config('links');
+
+         //comics
+         $comics = Comic::all();
+ 
+         //link buy
+         $buy = config('buy');
+ 
+         //links footer
+         $footerLinks = config('footer');
+ 
+         //icone social media
+         $icons = config('icons');
+ 
+ 
+         return view('comics.create', compact('links', 'comics', 'buy', 'footerLinks', 'icons'));
+        
+
     }
 
     /**
@@ -60,6 +73,16 @@ class ComicController extends Controller
     public function store(Request $request)
     {
         //
+
+        
+        $formData = $request->all();
+
+        $newComic = new Comic();
+
+        $newComic->fill($formData);
+        $newComic->save();
+
+        return redirect()->route('comics.show', $newComic->id);
     }
 
     /**
@@ -74,6 +97,9 @@ class ComicController extends Controller
         //links navbar
         $links = config('links');
 
+        //comics
+        $comics = Comic::all();
+
         //link buy
         $buy = config('buy');
 
@@ -83,14 +109,8 @@ class ComicController extends Controller
         //links footer
         $footerLinks = config('footer');
 
-        $data = [
-            'links' => $links,
-            'buy' => $buy,
-            'icons' => $icons,
-            'footerLinks' => $footerLinks,
-        ];
 
-        return view('comics/show', compact('comic','data'));
+        return view('comics.create', compact('links', 'comics', 'buy', 'footerLinks', 'icons'));
     }
 
     /**

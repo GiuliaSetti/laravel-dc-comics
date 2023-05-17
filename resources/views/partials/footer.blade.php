@@ -4,7 +4,7 @@
 
         <div id="footer_links">
 
-            @foreach ($data['footerLinks'] as $link)
+            @foreach ($footerLinks as $link)
 
                     <ul>
 
@@ -58,7 +58,7 @@
             <ul class="d-flex gap-4 align-content-center">
 
                 <h4 class="px-2">FOLLOW US</h4>
-                @foreach ($data['icons'] as $icon)
+                @foreach ($icons as $icon)
                 <li>
                     <a href="#">
                         <img src="{{Vite::asset($icon)}}" alt="social_icon">

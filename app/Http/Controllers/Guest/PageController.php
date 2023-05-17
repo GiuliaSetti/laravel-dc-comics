@@ -29,15 +29,8 @@ class PageController extends Controller
         //icone social media
         $icons = config('icons');
 
-        $data = [
-            'links' => $links,
-            'comics' => $comics,
-            'buy' => $buy,
-            'footerLinks' => $footerLinks,
-            'icons' => $icons
-        ];
 
-        return view('home', compact('data'));
+        return view('home', compact('links', 'comics', 'buy', 'footer', 'icons'));
     }
 
 }

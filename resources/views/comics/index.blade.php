@@ -1,10 +1,7 @@
 @extends('layouts/layout')
 
 @section('content')
-<div id="jumbotron">
 
-
-</div>
 <main>
     <div id="comics_content" class="container">
             <div id="label" class="text-uppercase">
@@ -13,7 +10,7 @@
 
             <div class="row px-3">
 
-                @foreach($data['comics'] as $comic)
+                @foreach($comics as $comic)
                     <div class="col-2">
                         <a href="{{route('comics.show', $comic->id)}}" class="current_series py-2">
                             <img class="img-fluid" src=" {{ $comic['thumb'] }} " alt="comic_cover">
@@ -28,6 +25,10 @@
 
             <div id="my_button">
                 <button><a href="#">LOAD MORE</a></button>
+            </div>
+
+            <div id="my_button">
+                <button><a href="{{route('comics.create')}}">ADD A COMIC</a></button>
             </div>
 
         </div>
