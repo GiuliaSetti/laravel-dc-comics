@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="d-flex justify-content-center" id="my_button">
+      <div class="d-flex justify-content-center my_button">
             
           <button class="btn btn-primary rounded-0" type="submit"><a href="#">ADD COMIC!</a></button>
       </div>

@@ -17,9 +17,6 @@ class PageController extends Controller
         //links navbar
         $links = config('links');
 
-        //comics
-        $comics = config('comics');
-
         //link buy
         $buy = config('buy');
 
@@ -30,7 +27,7 @@ class PageController extends Controller
         $icons = config('icons');
 
 
-        return view('home', compact('links', 'comics', 'buy', 'footer', 'icons'));
+        return view('home', compact('links', 'buy', 'footerLinks', 'icons'));
     }
 
 }

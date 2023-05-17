@@ -42,12 +42,11 @@ class ComicController extends Controller
     public function create(Request $request)
     {
         // 
+        //links navbar
+        $links = config('links');
 
-         //links navbar
-         $links = config('links');
-
-         //comics
-         $comics = Comic::all();
+        //comics
+        $comics = Comic::all();
  
          //link buy
          $buy = config('buy');
@@ -58,10 +57,8 @@ class ComicController extends Controller
          //icone social media
          $icons = config('icons');
  
- 
          return view('comics.create', compact('links', 'comics', 'buy', 'footerLinks', 'icons'));
         
-
     }
 
     /**
@@ -72,9 +69,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-        
+        //     
         $formData = $request->all();
 
         $newComic = new Comic();
@@ -97,9 +92,6 @@ class ComicController extends Controller
         //links navbar
         $links = config('links');
 
-        //comics
-        $comics = Comic::all();
-
         //link buy
         $buy = config('buy');
 
@@ -110,7 +102,7 @@ class ComicController extends Controller
         $footerLinks = config('footer');
 
 
-        return view('comics.create', compact('links', 'comics', 'buy', 'footerLinks', 'icons'));
+        return view('comics.show', compact('links', 'buy', 'comic' ,'footerLinks', 'icons'));
     }
 
     /**
@@ -122,6 +114,11 @@ class ComicController extends Controller
     public function edit(Comic $comic)
     {
         //
+        $links = config('links');
+        $footerLinks = config('footer');
+        $icons = config('icons');
+
+        return view('comics/edit', compact('comic', 'links', 'footerLinks', 'icons'));
     }
 
     /**
@@ -134,6 +131,13 @@ class ComicController extends Controller
     public function update(Request $request, Comic $comic)
     {
         //
+        $formData = $request->all();
+
+        $comic->update($formData);
+
+        $comic->save();
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

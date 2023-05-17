@@ -23,14 +23,9 @@
 
             </div>
 
-            <div id="my_button">
+            <div class="my_button">
                 <button><a href="#">LOAD MORE</a></button>
             </div>
-
-            <div id="my_button">
-                <button><a href="{{route('comics.create')}}">ADD A COMIC</a></button>
-            </div>
-
         </div>
 </main>
 

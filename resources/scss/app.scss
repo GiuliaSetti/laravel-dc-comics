@@ -137,27 +137,27 @@ main{
             object-fit: cover;
         }
     
-        #my_button{
-            display: flex;
-            justify-content: center;
+        
+    }
     
-            button{
-                border: none;
-                background-color: $blue;
-                padding: 8px 50px;
-                font-weight: bold;
-                letter-spacing: 2px;
+    .my_button{
+        display: flex;
+        justify-content: center;
 
-                margin-bottom: 1rem;
+        button{
+            border: none;
+            background-color: $blue;
+            padding: 8px 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
 
-                a{
-                    color: white;
-                }
+            margin-bottom: 1rem;
+
+            a{
+                color: white;
             }
         }
-    
     }
-
     
 }
 

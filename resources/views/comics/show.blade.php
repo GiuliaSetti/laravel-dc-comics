@@ -1,11 +1,6 @@
 @extends('layouts/layout')
 
 @section('content')
-<div id="jumbotron">
-
-
-</div>
-
 
 <main>
 
@@ -30,6 +25,17 @@
                 </div>
             </div>
         </div>
+
+          <div class="my_button">
+
+              <button class="btn btn-primary rounded-0">
+                      <a  href="{{route('comics.edit', $comic->id)}}">
+                      EDIT</a>
+                </button>
+          </div>
+          
+
     </div>
 </main>
 @endsection
+
