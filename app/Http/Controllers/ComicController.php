@@ -74,8 +74,8 @@ class ComicController extends Controller
         //     
         $formData = $request->all();
 
+        // richiamo la funzione di validazione
         $this->validation($request);
-
 
         $newComic = new Comic();
 
@@ -138,6 +138,9 @@ class ComicController extends Controller
         //
         $formData = $request->all();
 
+        // richiamo la funzione di validazione
+        $this->validation($request);
+        
         $comic->update($formData);
 
         $comic->save();
