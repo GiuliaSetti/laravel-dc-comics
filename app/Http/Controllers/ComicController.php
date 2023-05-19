@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use PhpParser\Node\Expr\AssignOp\Div;
 
 class ComicController extends Controller
 {
@@ -71,6 +73,9 @@ class ComicController extends Controller
     {
         //     
         $formData = $request->all();
+
+        $this->validation($request);
+
 
         $newComic = new Comic();
 
@@ -153,5 +158,42 @@ class ComicController extends Controller
         $comic->delete();
 
         return redirect()->route('comics.index');
+    }
+
+    private function validation($request){
+
+        $formData = $request->all();
+
+        $validator = Validator::make($formData, [
+
+            'title' => 'required|max:255|min:5',
+            'description' => 'required|max:255',
+            'thumb' => 'required',
+            'price' => 'required|numeric|min:3',
+            'series' => 'required|max:50|min:5',
+            'sale_date' => 'required|before_or_equal:today',
+            'type' => 'required|max:50|min:5',
+
+        ],  [
+            
+            'title.required' => "Inserisci un titolo",
+            'title.max' => "Il titolo non deve essere superiore a 255 caratteri",
+            'title.min' => "Il titolo deve essere di almeno 5 caratteri",
+            'description.required' => "E' necessario inserire la descrizione",
+            'description.max' => "La descrizione non deve superare i 255 caratteri",
+            'thumb.required' => "E' necessario inserire un'immagine di copertina",
+            'price.required' => "E' necessario inserire il prezzo",
+            'price.min' => "Il prezzo dev'essere composto di almeno 3 cifre, prova a metterci i decimali",
+            'series.required' => "Devi inserire una serie",
+            'series.max' => "La serie non dev'essere superiore a 50 caratteri",
+            'series.min' => "La serie dev'essere di almeno 5 caratteri",
+            'sale_date.required' => "Devi inserire una data di vendita",
+            'sale_date.before_or_equal' => "La data di vendita deve essere antecedente o coincidente con la data odierna",
+            'type.required' => "Inserisci la tipologia di fumetto",
+            'type.max' => "Non deve essere superiore a 50 caratteri",
+            'type.min' => "Deve essere di almeno 5 caratteri"
+        ])->validate();
+
+        return $validator;
     }
 }
